@@ -33,12 +33,6 @@ A modern, responsive web application that helps friends track shared expenses an
 4. **Open your browser**
    Navigate to `http://localhost:8080` (or the port shown in your terminal)
 
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
 
 ## 📸 Example Screenshots
 
