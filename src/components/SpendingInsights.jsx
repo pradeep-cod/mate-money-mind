@@ -1,14 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Transaction } from "@/data/mockData";
 import { TrendingUp, PieChart } from "lucide-react";
 
-interface SpendingInsightsProps {
-  transactions: Transaction[];
-  currentUserId: string;
-}
-
-export function SpendingInsights({ transactions, currentUserId }: SpendingInsightsProps) {
+export function SpendingInsights({ transactions, currentUserId }) {
   // Filter to user's actual expenses (excluding settlement transactions)
   const userExpenses = transactions.filter(t => 
     t.userId === currentUserId && 
@@ -20,7 +14,7 @@ export function SpendingInsights({ transactions, currentUserId }: SpendingInsigh
     const category = transaction.category;
     acc[category] = (acc[category] || 0) + transaction.amount;
     return acc;
-  }, {} as Record<string, number>);
+  }, {});
 
   const totalSpending = Object.values(spendingByCategory).reduce((sum, amount) => sum + amount, 0);
   
@@ -29,7 +23,7 @@ export function SpendingInsights({ transactions, currentUserId }: SpendingInsigh
     .sort(([,a], [,b]) => b - a)
     .slice(0, 5); // Top 5 categories
 
-  const getCategoryIcon = (category: string) => {
+  const getCategoryIcon = (category) => {
     switch (category.toLowerCase()) {
       case 'food':
         return '🍽️';
@@ -46,7 +40,7 @@ export function SpendingInsights({ transactions, currentUserId }: SpendingInsigh
     }
   };
 
-  const getCategoryColor = (index: number) => {
+  const getCategoryColor = (index) => {
     const colors = [
       'bg-primary/20 text-primary',
       'bg-income/20 text-income',

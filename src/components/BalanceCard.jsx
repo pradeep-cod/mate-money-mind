@@ -1,13 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { User } from "@/data/mockData";
 import { Wallet, TrendingDown } from "lucide-react";
 
-interface BalanceCardProps {
-  user: User;
-}
-
-export function BalanceCard({ user }: BalanceCardProps) {
+export function BalanceCard({ user }) {
   const monthlySpent = user.startBalance - user.currentBalance;
   const spendingRate = (monthlySpent / user.startBalance) * 100;
 

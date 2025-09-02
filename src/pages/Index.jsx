@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { mockData, Settlement } from "@/data/mockData";
+import { mockData } from "@/data/mockData";
 import { UserSelector } from "@/components/UserSelector";
 import { BalanceCard } from "@/components/BalanceCard";
 import { SettlementCard } from "@/components/SettlementCard";
@@ -11,7 +11,7 @@ import { CreditCard, Receipt, BarChart3, Users } from "lucide-react";
 
 const Index = () => {
   const [selectedUserId, setSelectedUserId] = useState("u1");
-  const [pendingSettlements, setPendingSettlements] = useState<Settlement[]>([...mockData.pendingSettlements]);
+  const [pendingSettlements, setPendingSettlements] = useState([...mockData.pendingSettlements]);
   
   const currentUser = mockData.users.find(u => u.id === selectedUserId);
   
@@ -19,7 +19,7 @@ const Index = () => {
     return <div>User not found</div>;
   }
 
-  const handleSettleUp = (settlement: Settlement) => {
+  const handleSettleUp = (settlement) => {
     // Simulate settling up - remove from pending settlements
     setPendingSettlements(prev => prev.filter(s => 
       !(s.fromUserId === settlement.fromUserId && 
@@ -67,12 +67,12 @@ const Index = () => {
           
           {/* Settlement Summary */}
           <div className="lg:col-span-2">
-          <SettlementCard 
-            currentUser={currentUser}
-            users={[...mockData.users]}
-            pendingSettlements={pendingSettlements}
-            onSettleUp={handleSettleUp}
-          />
+            <SettlementCard 
+              currentUser={currentUser}
+              users={[...mockData.users]}
+              pendingSettlements={pendingSettlements}
+              onSettleUp={handleSettleUp}
+            />
           </div>
         </div>
 
@@ -110,12 +110,12 @@ const Index = () => {
 
           <TabsContent value="settlements" className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <SettlementCard 
-              currentUser={currentUser}
-              users={[...mockData.users]}
-              pendingSettlements={pendingSettlements}
-              onSettleUp={handleSettleUp}
-            />
+              <SettlementCard 
+                currentUser={currentUser}
+                users={[...mockData.users]}
+                pendingSettlements={pendingSettlements}
+                onSettleUp={handleSettleUp}
+              />
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold">Settlement History</h3>
                 {mockData.pastSettlements.map((settlement) => (

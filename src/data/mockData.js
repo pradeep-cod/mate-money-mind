@@ -1,72 +1,4 @@
 // Mock data based on the provided schema
-export interface User {
-  id: string;
-  name: string;
-  currentBalance: number;
-  startBalance: number;
-}
-
-export interface GroupTransaction {
-  id: string;
-  payerId: string;
-  amount: number;
-  category: string;
-  description: string;
-  date: string;
-  split: Array<{
-    userId: string;
-    share: number;
-    paid: boolean;
-    transactionId?: string;
-  }>;
-  hasSettlement: boolean;
-  settlementId?: string;
-}
-
-export interface GroupTransactionDetails {
-  outOfPocket?: number;
-  intoPocket?: number;
-  groupTransactionId?: string;
-  groupTransactionIds?: string[];
-  toReceive?: {
-    [userId: string]: {
-      amount: number;
-      hasPaid: boolean;
-      settlementId?: string;
-      transactionId?: string;
-    };
-  };
-  paidTo?: {
-    [userId: string]: {
-      amount: number;
-      hasPaid: boolean;
-      settlementId?: string;
-      transactionId?: string;
-    };
-  };
-}
-
-export interface Transaction {
-  id: string;
-  transactionType: "expense" | "income" | "settlement-expense" | "settlement-income";
-  userId: string;
-  amount: number;
-  category: string;
-  description: string;
-  date: string;
-  groupTransactionDetails: GroupTransactionDetails;
-}
-
-export interface Settlement {
-  id?: string;
-  fromUserId: string;
-  toUserId: string;
-  amount: number;
-  status: "pending" | "completed";
-  date?: string;
-  groupTransactionsIds?: string[];
-  transactionsIds?: string[];
-}
 
 export const mockData = {
   users: [
@@ -230,7 +162,7 @@ export const mockData = {
   transactions: [
     {
       id: "ind-t1",
-      transactionType: "expense" as const,
+      transactionType: "expense",
       userId: "u1",
       amount: 60,
       category: "Food",
@@ -251,7 +183,7 @@ export const mockData = {
     },
     {
       id: "ind-t7",
-      transactionType: "expense" as const,
+      transactionType: "expense",
       userId: "u2",
       amount: 60,
       category: "Food",
@@ -271,7 +203,7 @@ export const mockData = {
     },
     {
       id: "ind-t2",
-      transactionType: "expense" as const,
+      transactionType: "expense",
       userId: "u2",
       amount: 40,
       category: "Entertainment",
@@ -292,7 +224,7 @@ export const mockData = {
     },
     {
       id: "ind-t8",
-      transactionType: "expense" as const,
+      transactionType: "expense",
       userId: "u1",
       amount: 40,
       category: "Entertainment",
@@ -312,7 +244,7 @@ export const mockData = {
     },
     {
       id: "ind-t3",
-      transactionType: "expense" as const,
+      transactionType: "expense",
       userId: "u1",
       amount: 35,
       category: "Fitness",
@@ -333,7 +265,7 @@ export const mockData = {
     },
     {
       id: "ind-t9",
-      transactionType: "expense" as const,
+      transactionType: "expense",
       userId: "u2",
       amount: 35,
       category: "Fitness",
@@ -353,7 +285,7 @@ export const mockData = {
     },
     {
       id: "ind-t4",
-      transactionType: "expense" as const,
+      transactionType: "expense",
       userId: "u2",
       amount: 35,
       category: "Travel",
@@ -374,7 +306,7 @@ export const mockData = {
     },
     {
       id: "ind-t10",
-      transactionType: "expense" as const,
+      transactionType: "expense",
       userId: "u1",
       amount: 35,
       category: "Travel",
@@ -394,7 +326,7 @@ export const mockData = {
     },
     {
       id: "ind-t5",
-      transactionType: "expense" as const,
+      transactionType: "expense",
       userId: "u2",
       amount: 50,
       category: "Supplements",
@@ -413,7 +345,7 @@ export const mockData = {
     },
     {
       id: "ind-t13",
-      transactionType: "expense" as const,
+      transactionType: "expense",
       userId: "u1",
       amount: 50,
       category: "Supplements",
@@ -431,7 +363,7 @@ export const mockData = {
     },
     {
       id: "ind-t6",
-      transactionType: "expense" as const,
+      transactionType: "expense",
       userId: "u1",
       amount: 35,
       category: "Food",
@@ -450,7 +382,7 @@ export const mockData = {
     },
     {
       id: "ind-t14",
-      transactionType: "expense" as const,
+      transactionType: "expense",
       userId: "u2",
       amount: 35,
       category: "Food",
@@ -468,7 +400,7 @@ export const mockData = {
     },
     {
       id: "ind-t11",
-      transactionType: "settlement-expense" as const,
+      transactionType: "settlement-expense",
       userId: "u2",
       amount: 20,
       category: "Settlements",
@@ -486,7 +418,7 @@ export const mockData = {
     },
     {
       id: "ind-t12",
-      transactionType: "settlement-income" as const,
+      transactionType: "settlement-income",
       userId: "u1",
       amount: 20,
       category: "Settlements",
@@ -509,7 +441,7 @@ export const mockData = {
       fromUserId: "u1",
       toUserId: "u2",
       amount: 15,
-      status: "pending" as const,
+      status: "pending",
       transactionsIds: ["ind-t5", "ind-t6"]
     }
   ],
@@ -519,11 +451,9 @@ export const mockData = {
       fromUserId: "u2",
       toUserId: "u1",
       amount: 20,
-      status: "completed" as const,
+      status: "completed",
       date: "2025-08-28T19:30:00.000Z",
       groupTransactionsIds: ["grp-t1", "grp-t2", "grp-t3", "grp-t4"]
     }
   ]
 };
-
-export type MockData = typeof mockData;

@@ -1,17 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { User, Settlement } from "@/data/mockData";
 import { ArrowUpRight, ArrowDownLeft, CheckCircle } from "lucide-react";
 
-interface SettlementCardProps {
-  currentUser: User;
-  users: User[];
-  pendingSettlements: Settlement[];
-  onSettleUp: (settlement: Settlement) => void;
-}
-
-export function SettlementCard({ currentUser, users, pendingSettlements, onSettleUp }: SettlementCardProps) {
+export function SettlementCard({ currentUser, users, pendingSettlements, onSettleUp }) {
   const userOwes = pendingSettlements.filter(s => s.fromUserId === currentUser.id);
   const userIsOwed = pendingSettlements.filter(s => s.toUserId === currentUser.id);
   
@@ -19,7 +11,7 @@ export function SettlementCard({ currentUser, users, pendingSettlements, onSettl
   const totalOwesTo = userIsOwed.reduce((sum, s) => sum + s.amount, 0);
   const netBalance = totalOwesTo - totalOwed;
 
-  const getUserName = (userId: string) => users.find(u => u.id === userId)?.name || 'Unknown';
+  const getUserName = (userId) => users.find(u => u.id === userId)?.name || 'Unknown';
 
   return (
     <Card className="bg-gradient-card border-border shadow-medium">

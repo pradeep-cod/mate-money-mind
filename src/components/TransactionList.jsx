@@ -1,18 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Transaction, User } from "@/data/mockData";
 import { format } from "date-fns";
 import { Receipt, ArrowUpRight, ArrowDownLeft, RefreshCw } from "lucide-react";
 import { useState } from "react";
 
-interface TransactionListProps {
-  transactions: Transaction[];
-  currentUser: User;
-  users: User[];
-}
-
-const getCategoryIcon = (category: string) => {
+const getCategoryIcon = (category) => {
   switch (category.toLowerCase()) {
     case 'food':
       return '🍽️';
@@ -31,7 +24,7 @@ const getCategoryIcon = (category: string) => {
   }
 };
 
-const getTransactionIcon = (type: Transaction['transactionType']) => {
+const getTransactionIcon = (type) => {
   switch (type) {
     case 'expense':
       return <Receipt className="h-4 w-4" />;
@@ -46,7 +39,7 @@ const getTransactionIcon = (type: Transaction['transactionType']) => {
   }
 };
 
-const getTransactionTypeLabel = (type: Transaction['transactionType']) => {
+const getTransactionTypeLabel = (type) => {
   switch (type) {
     case 'expense':
       return 'Expense';
@@ -61,8 +54,8 @@ const getTransactionTypeLabel = (type: Transaction['transactionType']) => {
   }
 };
 
-export function TransactionList({ transactions, currentUser, users }: TransactionListProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+export function TransactionList({ transactions, currentUser, users }) {
+  const [selectedCategory, setSelectedCategory] = useState("all");
   
   // Get user's transactions only
   const userTransactions = transactions.filter(t => t.userId === currentUser.id);
@@ -80,7 +73,7 @@ export function TransactionList({ transactions, currentUser, users }: Transactio
     new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
-  const getUserName = (userId: string) => users.find(u => u.id === userId)?.name || 'Unknown';
+  const getUserName = (userId) => users.find(u => u.id === userId)?.name || 'Unknown';
 
   return (
     <Card className="bg-gradient-card border-border shadow-medium">
