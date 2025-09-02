@@ -59,7 +59,7 @@ const Index = () => {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
           {/* Balance Overview */}
           <div className="lg:col-span-1">
             <BalanceCard user={currentUser} />
@@ -77,66 +77,77 @@ const Index = () => {
         </div>
 
         {/* Detailed Views */}
-        <Tabs defaultValue="transactions" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
-            <TabsTrigger value="transactions" className="flex items-center gap-2">
-              <Receipt className="h-4 w-4" />
-              <span className="hidden sm:inline">Transactions</span>
-            </TabsTrigger>
-            <TabsTrigger value="insights" className="flex items-center gap-2">
-              <BarChart3 className="h-4 w-4" />
-              <span className="hidden sm:inline">Insights</span>
-            </TabsTrigger>
-            <TabsTrigger value="settlements" className="flex items-center gap-2">
-              <Users className="h-4 w-4" />
-              <span className="hidden sm:inline">Settlements</span>
-            </TabsTrigger>
-          </TabsList>
+        <div className="bg-card/30 border border-border/50 rounded-lg p-6">
+          <Tabs defaultValue="transactions" className="space-y-6">
+            <TabsList className="flex w-full h-12 bg-muted/50 border border-border/50 rounded-lg overflow-hidden">
+              <TabsTrigger 
+                value="transactions" 
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-2 data-[state=active]:bg-background data-[state=active]:shadow-sm data-[state=active]:border-r data-[state=active]:border-border/50 transition-all duration-200 rounded-none"
+              >
+                <Receipt className="h-4 w-4" />
+                <span className="font-medium">Transactions</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="insights" 
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-2 data-[state=active]:bg-background data-[state=active]:shadow-sm data-[state=active]:border-r data-[state=active]:border-border/50 transition-all duration-200 rounded-none"
+              >
+                <BarChart3 className="h-4 w-4" />
+                <span className="font-medium">Insights</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="settlements" 
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-2 data-[state=active]:bg-background data-[state=active]:shadow-sm transition-all duration-200 rounded-none"
+              >
+                <Users className="h-4 w-4" />
+                <span className="font-medium">Settlements</span>
+              </TabsTrigger>
+            </TabsList>
 
-          <TabsContent value="transactions" className="space-y-6">
-            <TransactionList 
-              transactions={[...mockData.transactions]}
-              currentUser={currentUser}
-              users={[...mockData.users]}
-            />
-          </TabsContent>
-
-          <TabsContent value="insights" className="space-y-6">
-            <SpendingInsights 
-              transactions={[...mockData.transactions]}
-              currentUserId={selectedUserId}
-            />
-          </TabsContent>
-
-          <TabsContent value="settlements" className="space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <SettlementCard 
+            <TabsContent value="transactions" className="space-y-6">
+              <TransactionList 
+                transactions={[...mockData.transactions]}
                 currentUser={currentUser}
                 users={[...mockData.users]}
-                pendingSettlements={pendingSettlements}
-                onSettleUp={handleSettleUp}
               />
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold">Settlement History</h3>
-                {mockData.pastSettlements.map((settlement) => (
-                  <div key={settlement.id} className="p-4 bg-muted/30 rounded-lg border border-border/50">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="font-medium text-sm">
-                          {mockData.users.find(u => u.id === settlement.fromUserId)?.name} → {mockData.users.find(u => u.id === settlement.toUserId)?.name}
+            </TabsContent>
+
+            <TabsContent value="insights" className="space-y-6">
+              <SpendingInsights 
+                transactions={[...mockData.transactions]}
+                currentUserId={selectedUserId}
+              />
+            </TabsContent>
+
+            <TabsContent value="settlements" className="space-y-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <SettlementCard 
+                  currentUser={currentUser}
+                  users={[...mockData.users]}
+                  pendingSettlements={pendingSettlements}
+                  onSettleUp={handleSettleUp}
+                />
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold">Settlement History</h3>
+                  {mockData.pastSettlements.map((settlement) => (
+                    <div key={settlement.id} className="p-4 bg-muted/30 rounded-lg border border-border/50">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-medium text-sm">
+                            {mockData.users.find(u => u.id === settlement.fromUserId)?.name} → {mockData.users.find(u => u.id === settlement.toUserId)?.name}
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            {settlement.date && new Date(settlement.date).toLocaleDateString()}
+                          </div>
                         </div>
-                        <div className="text-xs text-muted-foreground">
-                          {settlement.date && new Date(settlement.date).toLocaleDateString()}
-                        </div>
+                        <div className="font-semibold text-income">+${settlement.amount.toFixed(2)}</div>
                       </div>
-                      <div className="font-semibold text-income">+${settlement.amount.toFixed(2)}</div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          </TabsContent>
-        </Tabs>
+            </TabsContent>
+          </Tabs>
+        </div>
       </main>
     </div>
   );

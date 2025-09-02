@@ -21,7 +21,7 @@ export function BalanceCard({ user }) {
         <div className="mt-4 space-y-2">
           <div className="flex items-center justify-between text-sm">
             <span className="text-muted-foreground">Monthly spending</span>
-            <span className="text-foreground font-medium">${monthlySpent.toFixed(2)}</span>
+            <span className="text-foreground font-medium">${monthlySpent.toFixed(2)} spent</span>
           </div>
           <Progress value={spendingRate} className="h-2" />
           <div className="flex items-center text-xs text-muted-foreground">

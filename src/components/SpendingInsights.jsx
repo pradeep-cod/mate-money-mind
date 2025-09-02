@@ -61,7 +61,7 @@ export function SpendingInsights({ transactions, currentUserId }) {
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <TrendingUp className="h-4 w-4" />
           <span>Total actual spending: </span>
-          <span className="font-semibold text-foreground">${totalSpending.toFixed(2)}</span>
+          <span className="font-semibold text-foreground">${totalSpending.toFixed(2)} spent</span>
         </div>
 
         <div className="space-y-3">
@@ -75,7 +75,7 @@ export function SpendingInsights({ transactions, currentUserId }) {
                     <span className="font-medium text-sm">{category}</span>
                   </div>
                   <div className="text-right">
-                    <div className="font-semibold text-sm">${amount.toFixed(2)}</div>
+                    <div className="font-semibold text-sm">${amount.toFixed(2)} spent</div>
                     <div className={`text-xs px-2 py-1 rounded-full ${getCategoryColor(index)}`}>
                       {percentage.toFixed(1)}%
                     </div>

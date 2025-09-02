@@ -1,73 +1,207 @@
-# Welcome to your Lovable project
+# Mate-Money-Mind: Split & Budget Tracker
 
-## Project info
+A modern, responsive web application that helps friends track shared expenses and manage budgets effectively. Built with React, Vite, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/dc3a3871-e6f6-4309-9b6e-8fe70b178de7
+## 🚀 How to Run the App
 
-## How can I edit this code?
+### Prerequisites
 
-There are several ways of editing your application.
+- Node.js (v18 or higher)
+- npm or yarn package manager
 
-**Use Lovable**
+### Installation & Setup
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/dc3a3871-e6f6-4309-9b6e-8fe70b178de7) and start prompting.
+1. **Clone the repository**
 
-Changes made via Lovable will be committed automatically to this repo.
+   ```bash
+   git clone <your-repo-url>
+   cd Mate-Money-Mind
+   ```
 
-**Use your preferred IDE**
+2. **Install dependencies**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+   ```bash
+   npm install
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+3. **Start the development server**
 
-Follow these steps:
+   ```bash
+   npm run dev
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+4. **Open your browser**
+   Navigate to `http://localhost:8080` (or the port shown in your terminal)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Available Scripts
 
-# Step 3: Install the necessary dependencies.
-npm i
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## 📸 Example Screenshots
+
+_[Screenshots will be added here]_
+
+- Main Dashboard with Balance Overview
+- Transaction History with Category Filtering
+- Spending Insights with Visual Charts
+- Settlement Summary and Management
+
+## 🎨 Design Decisions
+
+### 1. **Component Architecture**
+
+- **Modular Design**: Each major feature is a separate, reusable component
+- **Single Responsibility**: Components focus on one specific functionality
+- **Props-based Communication**: Clean data flow between parent and child components
+
+### 2. **UI/UX Philosophy**
+
+- **Clarity First**: Information hierarchy designed for quick understanding
+- **Progressive Disclosure**: Show essential info first, details on demand
+- **Visual Consistency**: Unified color scheme, spacing, and typography
+- **Responsive Design**: Mobile-first approach with desktop enhancements
+
+### 3. **Data Visualization Strategy**
+
+- **Tab-based Navigation**: Logical grouping of related information
+- **Card-based Layout**: Easy scanning and comparison of data
+- **Color Coding**: Intuitive use of colors (green for income, red for expenses)
+- **Progress Indicators**: Visual representation of spending vs. budget
+
+### 4. **User Experience Considerations**
+
+- **User Selector**: Easy switching between different user perspectives
+- **Real-time Updates**: Immediate feedback on settlement actions
+- **Filtering & Sorting**: Quick access to relevant transaction data
+- **Toast Notifications**: Clear feedback for user actions
+
+### 5. **Technical Implementation Choices**
+
+- **React Hooks**: Modern state management with useState and useEffect
+- **Tailwind CSS**: Rapid development with consistent design system
+- **Component Libraries**: shadcn/ui for polished, accessible components
+- **Mock Data Structure**: Flexible data model for future backend integration
+
+## 🔮 Features Considered But Not Implemented
+
+### 1. **Advanced Analytics**
+
+- **Monthly/Yearly Trends**: Historical spending patterns over time
+- **Budget Alerts**: Notifications when approaching spending limits
+- **Category Budgets**: Individual budget limits per expense category
+- **Spending Predictions**: AI-powered future expense forecasting
+
+### 2. **Enhanced User Management**
+
+- **User Profiles**: Detailed user information and preferences
+- **Group Management**: Support for more than two users
+- **User Permissions**: Different access levels and roles
+- **User Avatars**: Visual identification and personalization
+
+### 3. **Financial Features**
+
+- **Currency Support**: Multi-currency expense tracking
+- **Receipt Upload**: Photo/document storage for transactions
+- **Recurring Expenses**: Automatic transaction creation
+- **Export Functionality**: PDF/CSV reports for accounting
+
+### 4. **Social Features**
+
+- **Expense Sharing**: Social media integration for expense sharing
+- **Comments & Notes**: Discussion threads on shared expenses
+- **Expense Challenges**: Gamification elements for budget goals
+- **Group Chat**: Built-in communication for expense coordination
+
+### 5. **Advanced UI Elements**
+
+- **Dark Mode**: Theme switching capability
+- **Customizable Dashboard**: Drag-and-drop widget arrangement
+- **Advanced Charts**: Interactive D3.js visualizations
+- **Mobile App**: Native mobile application development
+
+### 6. **Data & Security**
+
+- **Offline Support**: PWA capabilities for offline usage
+- **Data Encryption**: Enhanced security for financial information
+- **Backup & Sync**: Cloud storage and cross-device synchronization
+- **Audit Trail**: Complete history of all financial changes
+
+## 🏗️ Technical Architecture
+
+### Frontend Stack
+
+- **Framework**: React 18 with modern hooks
+- **Build Tool**: Vite for fast development and building
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: shadcn/ui component library
+- **State Management**: React hooks for local state
+- **Routing**: React Router for navigation
+
+### Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+├── pages/              # Main page components
+├── data/               # Mock data and data models
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+└── ui/                 # shadcn/ui components
 ```
 
-**Edit a file directly in GitHub**
+### Key Components
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **BalanceCard**: Current balance and spending overview
+- **SettlementCard**: Settlement summary and management
+- **TransactionList**: Transaction history with filtering
+- **SpendingInsights**: Category-based spending analysis
+- **UserSelector**: User switching functionality
 
-**Use GitHub Codespaces**
+## 🎯 Problem-Solving Approach
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 1. **Core Problem Analysis**
 
-## What technologies are used for this project?
+- **Payables & Receivables**: Clear visualization of who owes whom
+- **True Spending vs. Advance Payments**: Distinction for accurate budgeting
+- **Multiple Transaction Handling**: Complex expense scenarios
 
-This project is built with:
+### 2. **Solution Design**
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Net Balance Calculation**: Automatic computation of overall position
+- **Category-based Analysis**: Understanding spending patterns
+- **Settlement Simulation**: UI-based settlement management
+- **Real-time Updates**: Immediate state changes for user feedback
 
-## How can I deploy this project?
+### 3. **User Experience Focus**
 
-Simply open [Lovable](https://lovable.dev/projects/dc3a3871-e6f6-4309-9b6e-8fe70b178de7) and click on Share -> Publish.
+- **Information Hierarchy**: Most important data prominently displayed
+- **Actionable Insights**: Clear next steps for users
+- **Error Prevention**: Validation and confirmation for critical actions
+- **Accessibility**: Screen reader support and keyboard navigation
 
-## Can I connect a custom domain to my Lovable project?
+## 🚀 Future Enhancements
 
-Yes, you can!
+### Phase 2 Features
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- Backend integration with real-time data
+- User authentication and data persistence
+- Advanced reporting and analytics
+- Mobile app development
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Phase 3 Features
+
+- Multi-user group support
+- Advanced financial tools
+- Integration with banking APIs
+- Machine learning insights
+
+## 📝 License
+
+This project is created for educational and portfolio purposes.
+
+---
+
+**Built with ❤️ using React, Vite, and Tailwind CSS**
