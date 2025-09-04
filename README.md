@@ -37,7 +37,7 @@ A modern, responsive web application that helps friends track shared expenses an
 
 #### User Dashboards
 ![User A Dashboard](src/images/UserA_Dashboard.png)  
-This shows **User A’s dashboard**, with the current balance at the top, a monthly spending bar, and a settlement summary. The goal here is to give users a **quick snapshot** of their financial position. The design is intentionally clean and minimal, so the most important data—balance, spending, and settlements—stand out immediately.  
+This shows **User A’s dashboard**, with the current balance at the top, a monthly spending bar, and a settlement summary. The goal here is to give users a **quick snapshot** of their financial position. The design is intentionally clean and minimal, so the most important data, balance, spending, and settlements stand out immediately.  
 
 ![User B Dashboard](src/images/UserB_Dashboard.png)  
 This is **User B’s dashboard**, which mirrors User A’s but from the opposite settlement perspective. When **User A clicks "Settle Up"**, User B is automatically informed that the payment has been settled, ensuring **synchronization and transparency**. In the **top-right corner**, users can toggle perspective between accounts, which allows seamless switching in shared financial tracking.  
@@ -139,19 +139,6 @@ The UI was built with a focus on **simplicity, clarity, and fairness**:
 - **Expense Challenges**: Gamification elements for budget goals
 - **Group Chat**: Built-in communication for expense coordination
 
-### 5. **Advanced UI Elements**
-
-- **Dark Mode**: Theme switching capability
-- **Customizable Dashboard**: Drag-and-drop widget arrangement
-- **Advanced Charts**: Interactive D3.js visualizations
-- **Mobile App**: Native mobile application development
-
-### 6. **Data & Security**
-
-- **Offline Support**: PWA capabilities for offline usage
-- **Data Encryption**: Enhanced security for financial information
-- **Backup & Sync**: Cloud storage and cross-device synchronization
-- **Audit Trail**: Complete history of all financial changes
 
 ## Technical Architecture
 
@@ -206,26 +193,4 @@ src/
 - **Error Prevention**: Validation and confirmation for critical actions
 - **Accessibility**: Screen reader support and keyboard navigation
 
-## 🚀 Future Enhancements
-
-### Phase 2 Features
-
-- Backend integration with real-time data
-- User authentication and data persistence
-- Advanced reporting and analytics
-- Mobile app development
-
-### Phase 3 Features
-
-- Multi-user group support
-- Advanced financial tools
-- Integration with banking APIs
-- Machine learning insights
-
-## 📝 License
-
-This project is created for educational and portfolio purposes.
-
----
-
-**Built with ❤️ using React, Vite, and Tailwind CSS**
+**Built with using React, Vite, and Tailwind CSS**
