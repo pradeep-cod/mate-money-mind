@@ -40,7 +40,7 @@ A modern, responsive web application that helps friends track shared expenses an
 This shows **User A’s dashboard**, with the current balance at the top, a monthly spending bar, and a settlement summary. The goal here is to give users a **quick snapshot** of their financial position. The design is intentionally clean and minimal, so the most important data, balance, spending, and settlements stand out immediately.  
 
 ![User B Dashboard](src/images/UserB_Dashboard.png)  
-This is **User B’s dashboard**, which mirrors User A’s but from the opposite settlement perspective. When **User A clicks "Settle Up"**, User B is automatically informed that the payment has been settled, ensuring **synchronization and transparency**. In the **top-right corner**, users can toggle perspective between accounts, which allows seamless switching in shared financial tracking.  
+This is **User B’s dashboard**, which mirrors User A’s but from the opposite settlement perspective. When **User A clicks "Settle Up"**, User B is automatically informed that the payment has been settled, ensuring **synchronization and transparency**. In the **top-right corner**, developers can toggle between account perspectives. This is included for development and demonstration purposes only, to preview how the interface looks from the other user’s point of view.
 
 ---
 
@@ -68,7 +68,6 @@ The **Settlements** screen provides a clear summary of pending balances between 
 The UI was built with a focus on **simplicity, clarity, and fairness**:
 - **Simplicity:** Minimalist layouts with clear sections prevent users from feeling overwhelmed.  
 - **Clarity:** Progress bars, percentages, and filters provide multiple ways to understand spending quickly.  
-- **Fairness:** Mirrored dashboards across users ensure both sides always see consistent and transparent information.  
 - **Usability:** Features like filtering transactions, toggling user perspectives, and synchronized "Settle Up" actions were added to make the experience **intuitive and trustworthy**.  
 - **Visual Guidance:** Icons and progress indicators reduce the need for reading dense text and make financial data **easier to digest at a glance**.  
 
