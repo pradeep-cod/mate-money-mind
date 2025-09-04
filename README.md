@@ -2,7 +2,7 @@
 
 A modern, responsive web application that helps friends track shared expenses and manage budgets effectively. Built with React, Vite, and Tailwind CSS.
 
-## 🚀 How to Run the App
+## How to Run the App
 
 ### Prerequisites
 
@@ -33,17 +33,47 @@ A modern, responsive web application that helps friends track shared expenses an
 4. **Open your browser**
    Navigate to `http://localhost:8080` (or the port shown in your terminal)
 
+## Example Screenshots
 
-## 📸 Example Screenshots
+#### User Dashboards
+![User A Dashboard](src/images/UserA_Dashboard.png)  
+This shows **User A’s dashboard**, with the current balance at the top, a monthly spending bar, and a settlement summary. The goal here is to give users a **quick snapshot** of their financial position. The design is intentionally clean and minimal, so the most important data—balance, spending, and settlements—stand out immediately.  
 
-_[Screenshots will be added here]_
+![User B Dashboard](src/images/UserB_Dashboard.png)  
+This is **User B’s dashboard**, which mirrors User A’s but from the opposite settlement perspective. When **User A clicks "Settle Up"**, User B is automatically informed that the payment has been settled, ensuring **synchronization and transparency**. In the **top-right corner**, users can toggle perspective between accounts, which allows seamless switching in shared financial tracking.  
 
-- Main Dashboard with Balance Overview
-- Transaction History with Category Filtering
-- Spending Insights with Visual Charts
-- Settlement Summary and Management
+---
 
-## 🎨 Design Decisions
+#### Transactions
+![Transactions](src/images/transactions.png)  
+The **Transaction History** provides a chronological list of all group settlements and expenses, complete with categories, amounts, and timestamps. This design makes it easy to **verify past activity** and maintain accountability.  
+Users can also **filter transactions by category** (e.g., Food, Fitness, Entertainment), which makes reviewing spending more personalized and efficient. The use of icons next to categories improves **visual recognition** and reduces cognitive load.  
+
+---
+
+#### Insights
+![Insights](src/images/insights.png)  
+The **Spending Insights** page breaks down expenses by category with both percentages and progress bars. This dual representation allows users to **understand not just amounts but proportions** of their spending. For example, food might take up 37.3% of total spending, while fitness and travel are much smaller shares.  
+This UI choice helps users **identify patterns and areas of overspending**, encouraging better budgeting habits.  
+
+---
+
+#### Settlements
+![Settlements](src/images/settlements.png)  
+The **Settlements** screen provides a clear summary of pending balances between users along with a detailed settlement history. The design emphasizes **clarity and accountability**, removing confusion about who owes whom and how much. The prominent "Settle Up" button ensures that users can **quickly resolve balances** with a single click, while the history log maintains a permanent record of past transactions for trust and transparency.  
+
+---
+
+### Design Rationale
+The UI was built with a focus on **simplicity, clarity, and fairness**:
+- **Simplicity:** Minimalist layouts with clear sections prevent users from feeling overwhelmed.  
+- **Clarity:** Progress bars, percentages, and filters provide multiple ways to understand spending quickly.  
+- **Fairness:** Mirrored dashboards across users ensure both sides always see consistent and transparent information.  
+- **Usability:** Features like filtering transactions, toggling user perspectives, and synchronized "Settle Up" actions were added to make the experience **intuitive and trustworthy**.  
+- **Visual Guidance:** Icons and progress indicators reduce the need for reading dense text and make financial data **easier to digest at a glance**.  
+
+
+## Design Decisions
 
 ### 1. **Component Architecture**
 
@@ -79,7 +109,7 @@ _[Screenshots will be added here]_
 - **Component Libraries**: shadcn/ui for polished, accessible components
 - **Mock Data Structure**: Flexible data model for future backend integration
 
-## 🔮 Features Considered But Not Implemented
+## Features Considered But Not Implemented
 
 ### 1. **Advanced Analytics**
 
@@ -123,11 +153,11 @@ _[Screenshots will be added here]_
 - **Backup & Sync**: Cloud storage and cross-device synchronization
 - **Audit Trail**: Complete history of all financial changes
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 
 ### Frontend Stack
 
-- **Framework**: React 18 with modern hooks
+- **Framework**: Reactjs with modern hooks
 - **Build Tool**: Vite for fast development and building
 - **Styling**: Tailwind CSS with custom design system
 - **UI Components**: shadcn/ui component library
@@ -154,7 +184,7 @@ src/
 - **SpendingInsights**: Category-based spending analysis
 - **UserSelector**: User switching functionality
 
-## 🎯 Problem-Solving Approach
+## Problem-Solving Approach
 
 ### 1. **Core Problem Analysis**
 
